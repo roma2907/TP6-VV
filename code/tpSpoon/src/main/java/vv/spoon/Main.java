@@ -15,6 +15,8 @@ import spoon.support.StandardEnvironment;
 import spoon.support.compiler.jdt.JDTBasedSpoonCompiler;
 import vv.spoon.logger.LogWriter;
 import vv.spoon.logger.ShutdownHookLog;
+import vv.spoon.processor.CallProcessor;
+import vv.spoon.processor.CountProcessor;
 import vv.spoon.processor.LogProcessor;
 
 
@@ -49,7 +51,7 @@ public class Main {
 
 
 
-        Processor processor = new LogProcessor();
+        Processor processor = new CallProcessor();
         applyProcessor(factory, processor);
 
 

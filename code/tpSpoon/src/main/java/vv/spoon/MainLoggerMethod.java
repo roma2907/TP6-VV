@@ -1,11 +1,14 @@
 package vv.spoon;
 
+import vv.spoon.logger.LogWriter;
+import vv.spoon.logger.ShutdownHookLog;
 import vv.spoon.processor.LogProcessor;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 
-public class MainExample {
+public class MainLoggerMethod {
 
     public static void main(String[] args) throws IOException {
         Instru instru = new Instru(args[0], args[1], new LogProcessor());
@@ -14,7 +17,7 @@ public class MainExample {
         instru.initOutputDirectory();
 
         //instrumentalize the java code of output directory with LogProcessor
-        instru.instru();
+        instru.instru("/vv/spoon/logger",Arrays.asList(LogWriter.class.getSimpleName(),ShutdownHookLog.class.getSimpleName()));
     }
 
 }
